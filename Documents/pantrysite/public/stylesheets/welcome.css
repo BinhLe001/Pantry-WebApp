@@ -1,0 +1,227 @@
+body {
+    font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #333333;
+    overflow: hidden;
+}
+
+#mainmenu {
+	border-radius: 5px;
+	position: relative;
+	text-align: center;
+	margin: 0 auto;
+	width: 52%;
+	height: 40vh;
+	line-height:3em;
+	overflow: auto;
+	/*padding:15px;*/
+	background-color:white;
+	color: #000000;
+	border:4px double #e67e22;
+	border-radius: 10px;
+	box-sizing: border-box;
+}
+
+.title {
+    font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size: 70px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 15px;
+    /*text-shadow: 1px 1px 1px #000000;*/
+}
+
+.subtitle {
+	font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    /*text-shadow: 1px 1px 1px #000000;*/
+    /*margin-bottom: 10px;*/
+}
+
+.body-pic {
+    background: url("/images/background/background_potential.jpg") fixed no-repeat;
+    background-position-y: 37.5%;
+    background-size: cover;
+    padding-top: 50px;
+}
+
+
+#home:link {color: black;}      /* unvisited link */
+       #home:visited {color: black;}   /* visited link */
+       #home:hover {color: black;}     /* mouse over link */
+       #home:active {color: black;}
+
+.head>*:hover {
+	transition: all 0.2s;
+	background-color: #333;
+}
+.logo {
+	float: left;
+	color: red;
+	font-style: sans-serif;
+	text-decoration: none;
+	text-align: center;
+	margin: 0;
+	padding: 20px;
+	height: 20px;
+	display: inline-block;
+	position: relative;
+}
+
+.about {
+	float: right;
+	color: green;
+	position: relative;
+	display: inline-block;
+	height: 20px;
+	padding: 20px;
+	margin: 0;
+	text-align: center;
+	text-decoration: none;
+	font-style: sans-serif;
+}
+
+.head {
+    background-color: blue;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    height: 60px;
+    z-index: -1;
+}
+
+
+.ui.top.fixed.menu{
+	position: relative initial;
+	margin:0px;
+	padding:0px;
+	top: 0px;
+	width: 100%;
+	background-color: #e67e22;
+	z-index: 999;
+	float:left;
+	height:50px;
+}
+
+.ui.top.fixed.menu > * {
+	font-weight: bold;
+}
+
+.main{
+	text-align: center;
+	margin-top: 40px;
+	position:relative;
+}
+
+.intro-text {
+	/*font-family: 'Raleway', sans-serif;*/
+	/*margin-right: auto;*/
+    /*margin-left: auto;*/
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0 auto;
+}
+
+h1 {
+	font-size: 60px;
+}
+
+h5 {
+	font-size: 20px;
+}
+
+#big-button{
+	top: 5px;
+	right: 5px;
+	/*margin: 0 auto;*/
+	position: fixed !important;
+	/*margin-right: auto;*/
+    /*margin-left: auto;*/
+    /*padding-left: 15px;*/
+    /*padding-right: 15px;*/
+    z-index: 1000;
+}
+
+#small-button{
+	display:none;
+}
+
+/*@media screen and (max-width: 1700px) {
+	#big-button{
+		left:43%;
+	}
+}
+
+@media screen and (max-width:1500px){
+	#big-button{
+		left:41%;
+	}
+}
+
+@media screen and (max-width:1400px){
+	#big-button{
+		left:39.5%;
+	}
+}
+
+
+@media screen and (max-width:1300px){
+	#big-button{
+		left:38%;
+	}
+}
+
+@media screen and (max-width:1200px){
+	#big-button{
+		left:36%;
+	}
+}
+
+
+@media screen and (max-width:1100px){
+	#big-button{
+		left:34%;
+	}
+}
+@media screen and (max-width: 900px){
+	#big-button{
+		left:31%;
+	}
+}
+
+@media screen and (max-width:700px){
+	#big-button{
+		left:27%;
+	}
+}
+
+@media screen and (max-width:600px){
+	#big-button{
+		left:24%;
+	}
+}
+
+@media screen and (max-width:500px){
+	#big-button{
+		left:19.5%;
+	}
+}
+
+@media screen and (max-width:450px){
+	#big-button{
+		left:15.5%;
+	}
+}
+
+@media screen and (max-width:400px){
+	#big-button{
+		left:12.5%;
+	}
+}*/
