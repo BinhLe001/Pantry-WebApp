@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel='stylesheet' href='stylesheets/welcome.css'/>
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel='stylesheet' href='/lib/semantic/semantic.min.css'/>
+
+    <script src="/lib/semantic/semantic.min.js"></script>
+	<title>Pantry</title>
+	<meta charset="UTF-8">
+</head>
+<body class = "body-pic">
+	<!-- facebook sdk -->
+  	<script>
+	  window.fbAsyncInit = function() {
+	    FB.init({
+	      appId      : '1108450909174514',
+	      xfbml      : true,
+	      version    : 'v2.5'
+	    });
+	  };
+
+	  (function(d, s, id){
+	     var js, fjs = d.getElementsByTagName(s)[0];
+	     if (d.getElementById(id)) {return;}
+	     js = d.createElement(s); js.id = id;
+	     js.src = "//connect.facebook.net/en_US/sdk.js";
+	     fjs.parentNode.insertBefore(js, fjs);
+	   }(document, 'script', 'facebook-jssdk'));
+	</script>
+
+	<script>
+	  // This is called with the results from from FB.getLoginStatus().
+	  function statusChangeCallback(response) {
+	    // The response object is returned with a status field that lets the
+	    // app know the current login status of the person.
+	    // Full docs on the response object can be found in the documentation
+	    // for FB.getLoginStatus().
+
+
+	    if (response.status === 'connected') {
+	      // Logged into your app and Facebook.
+	      FB.api('/me', function(response) {
+	      	 var user = response.name;
+	      	 var user_id = response.id;
+		 	 window.localStorage.setItem("user", user);
+		 	 window.localStorage.setItem("user_id", user_id);
+   		  }); 
+
+	      //window.location = "localhost:3000/home";
+	      window.location = "https://pantrysite.herokuapp.com/home/";
+
+
+	    } else if (response.status === 'not_authorized') {
+	      // The person is logged into Facebook, but not your app.
+
+	      $.ajax({
+
+	      });
+	      
+	    } else {
+	      // The person is not logged into Facebook, so we're not sure if
+	      // they are logged into this app or not.
+	    }
+	  }
+
+	  // This function is called when someone finishes with the Login
+	  // Button.  See the onlogin handler attached to it in the sample
+	  // code below.
+	  function checkLoginState() {
+	    FB.getLoginStatus(function(response) {
+	      statusChangeCallback(response);
+	    });
+	  }
+
+	  window.fbAsyncInit = function() {
+	  FB.init({
+	    appId      : '1108450909174514',
+	    cookie     : true,  // enable cookies to allow the server to access 
+	                        // the session
+	    xfbml      : true,  // parse social plugins on this page
+	    version    : 'v2.2' // use version 2.2
+	  });
+
+	  // Now that we've initialized the JavaScript SDK, we call 
+	  // FB.getLoginStatus().  This function gets the state of the
+	  // person visiting this page and can return one of three states to
+	  // the callback you provide.  They can be:
+	  //
+	  // 1. Logged into your app ('connected')
+	  // 2. Logged into Facebook, but not your app ('not_authorized')
+	  // 3. Not logged into Facebook and can't tell if they are logged into
+	  //    your app or not.
+	  //
+	  // These three cases are handled in the callback function.
+
+	  FB.getLoginStatus(function(response) {
+	    statusChangeCallback(response);
+	  });
+
+	  };
+
+	  // Load the SDK asynchronously
+	  (function(d, s, id) {
+	    var js, fjs = d.getElementsByTagName(s)[0];
+	    if (d.getElementById(id)) return;
+	    js = d.createElement(s); js.id = id;
+	    js.src = "//connect.facebook.net/en_US/sdk.js";
+	    fjs.parentNode.insertBefore(js, fjs);
+	  }(document, 'script', 'facebook-jssdk'));
+	</script>
+
+	
+	<div class="ui top fixed menu">
+	  <div class="item"><a href="/" id="home">PANTRY</a></div>				  
+		<a href="/aboutwelcome" class="item">About Us</a>
+	</div>
+	<fb:login-button id="big-button" scope="public_profile,email" onlogin="checkLoginState();" class="fb-login-button" data-size="xlarge" auto_logout_link="false" style="margin: 0 auto;">
+	</fb:login-button>
+
+<!-- 	<div class="head">
+		<a href="" class="logo">PANTRY</a>
+		<a href="about" class="about">ABOUT</a>
+    </div> -->
+
+	<div class="main">
+<!-- 		<div id="overlay"><img src="https://d3ui957tjb5bqd.cloudfront.net/images/screenshots/products/19/199/199814/iuofjgenwsaxmjokhhpnwmuamrshk0al5nfxhjghon9uaudbzdecnih2m48ux2yu-o.jpg?1412531086"/>
+		</div>	 -->	
+		<div id="mainmenu">
+			<!-- <div id="content-container"> -->
+			<div class="intro-text">
+				<h1 class="title">PANTRY</h1>
+				<h4 class="subtitle">Your ingredients. Your health. Your recipes.</h4>
+				<!-- <h4 class="subtitle"> Your health.</h4> -->
+				<!-- <h4 class="subtitle">Your recipes.</h4> -->
+				
+				<!-- <fb:login-button id="small-button" scope="public_profile,email" onlogin="checkLoginState();" class="fb-login-button" data-size="xlarge" auto_logout_link="false"> -->
+				<!-- </fb:login-button> -->
+			<!-- </div> -->
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>

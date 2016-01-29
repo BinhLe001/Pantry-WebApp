@@ -1,0 +1,501 @@
+.remove.icon {
+	line-height: 1em;
+}
+
+.floated.like.button-container {
+	float:right;
+}
+
+form {
+	text-align: center;
+}
+
+form > ul {
+	padding-left: 15.2px;
+}
+
+.flavors {
+	float: left;
+	margin-left: 4px;
+}
+
+.recipe-title {
+	font-weight: bold;
+}
+
+.flavor {
+	height: 21px;
+	width: 21px;
+}
+
+.offset {
+	float:right;
+}
+
+#flavor-offset {
+	height:20px;
+	width:40px;
+}
+
+.parameter {
+	border-radius: 100px;
+}
+
+.remove-input {
+	float: left;
+}
+
+.submit-parameter {
+	display: none;
+	border: 0;
+	border-radius: 100px;
+}
+
+.clear-all {
+	text-align: center;
+}
+
+#time-search {
+	height: 50px;
+	background: #FFEBCD;
+	line-height: 2.5em;
+	border: solid #4682B4;
+	border-width: 2.5px;
+	border-radius: 4px;
+}
+
+#time {
+	display: block;
+	line-height: 0em;
+}
+
+/*
+#ingredient-clear-all {
+	line-height: normal;
+	border: 0;
+	border-radius:100px;
+}
+*/
+.ui.fluid.card {
+	margin:10px;
+}
+
+.ui.card>.content, .ui.cards>.card>.content{
+	padding:0px;
+}
+
+.ui-autocomplete.ui-widget {
+	font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+	line-height: 1em;
+	padding: 0;
+}
+
+li.ui-menu-item.ui-state-focus {
+	background: none;
+	background-color: #F08080;
+}
+
+.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content {
+	margin: 0;
+	padding: 0;
+}
+
+
+body {
+  font: 1em "Lucida Grande", Helvetica, Arial, sans-serif;
+  height: 100%;
+  margin: 0; padding: 0;
+  background-color: #1abc9c;
+}
+
+a {
+  color: black;
+}
+
+
+
+#loading-message {
+	display: none;
+}
+
+#no-matching-recipes {
+	display: none;
+}
+
+#need-both-fit-options {
+	display: none;
+}
+
+.home-message {
+	margin: 70px 12% 12% 12%;
+}
+
+.container {
+    display: block; 
+    position:relative
+} 
+.ui-autocomplete {
+    position: absolute;
+}
+
+section.head {
+	position: fixed;
+	width: 100%;
+	z-index: 999;
+}
+
+a.home:link {color: black;}      /* unvisited link */
+       a:visited {color: black;}   /* visited link */
+       a:hover {color: black;}     /* mouse over link */
+       a:active {color: black;}
+
+.ui.top.fixed.menu.two{
+	display:none;
+}
+
+.ui.top.fixed.menu.two > div > a {
+	font-weight: bold;
+}
+
+.ui.top.fixed.menu.two > div.ui.simple.dropdown.item {
+	font-weight: bold;
+}
+
+.ui.top.fixed.menu.two > div > div > div > a {
+	font-weight: bold;
+}
+
+.ui.top.fixed.menu{
+	position: relative;
+	margin:0px;
+	padding:0px;
+	top: 0px;
+	width: 100%;
+	background-color: #e67e22;
+	z-index: 999;
+	float:left;
+	height:50px;
+}
+
+.ui.top.fixed.menu > a {
+	font-weight: bold;
+}
+
+
+::-webkit-scrollbar { width: 5px; height: 0px;}
+::-webkit-scrollbar-button {  background-color: #666; }
+::-webkit-scrollbar-track {  background-color: transparent;}
+/*::-webkit-scrollbar-track-piece { background-color: transparent;}
+*/
+::-webkit-scrollbar-thumb { height: 5px; background-color: #666; border-radius: 3px;}
+::-webkit-scrollbar-corner { background-color: #999;}}
+::-webkit-resizer { background-color: #666;}
+
+#leftpart {
+	border-radius: 5px;
+	position: absolute; left: 0; top: 0;
+	margin:70px 2% 2% 2%;
+   width:250px; /* or whatever width you want. */
+   display: inline-block;
+   	height:100%;
+	line-height:3em;
+	overflow-x:hidden;
+	overflow-y:scroll;
+	padding:15px;
+	background-color:white;
+	color:#000000;
+	border:4px double #e67e22;
+	border-radius: 10px;
+/*	background-image: url("/images/background/wov.png");
+*/}
+
+#lose-weight, #maintain-weight, #gain-weight {
+	min-width: 200px;
+    min-height: 35px;
+    padding: 3px;
+    margin: 3px;
+}
+
+#before-workout{
+	max-width: 80px;
+    padding: 3px;
+    margin: 12px;
+   	margin-left: 12px;
+    margin-right: 0px;
+}
+
+#after-workout{
+	max-width: 80px;
+    padding: 3px;
+    margin: 12px;
+   	margin-left: 0px;
+    margin-right: 12px;
+}
+
+.ui.buttons .or{
+	width: 1.4em;
+    height: 4em;
+}
+
+#rightpart {
+	position: absolute; right: 0; top: 0; left:285px;
+	text-align: center;
+	margin:70px 2% 2% 2%;
+	width:70%;
+	height:100vh;
+	line-height:3em;
+	overflow:scroll;
+	padding:15px;
+	background-color:white;
+	color:#000000;
+	border:4px double #e67e22;
+	border-radius:10px;
+	box-sizing: border-box;
+}
+
+.resize {
+	margin:15px;
+	position: relative;
+    float: left;
+    width:  200px;
+    height: 200px;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+}
+
+img {
+    width: 360px;
+    height: 240px;
+}
+
+.ui.fluid.card {
+	margin:10px;
+}
+
+.ui.card>.content, .ui.cards>.card>.content{
+	padding:0px;
+}
+
+.ui.card>.image, .ui.cards>.card>.image {
+	background: rgba(0,0,0,0);
+}
+
+.plus.icon{
+	margin-right:0px;
+}
+
+.current-selected-container {
+	line-height: 2.9em;
+	width: 250px;
+	float: left;
+	text-align: left;
+}
+
+#recipe-list > li.current-selected-element {
+	overflow-x: scroll;
+	overflow-y: hidden;
+}
+
+#recipe-list > li > div {
+	width: 466px;
+}
+
+li.current-selected-element {
+	width: 180px;
+	background: #FFEBCD;
+	height: 42px;
+	list-style-type: none;
+	float: center;
+	padding: 1px;
+	border: solid #4682B4;
+	border-width: 2.5px;
+	border-radius: 4px;
+}
+
+
+h4 {
+	width: 250px;
+	display: block;
+}
+
+.floated.like.button-container {
+	width: 45.979px;
+}
+
+.remove-input.ui.icon.button.small {
+	margin-top: 1.9px;
+	margin-left: 1.8px;
+	margin-right: 4px;
+	text-align: center;
+	line-height: 50%;
+}
+
+.saved {
+	background-color: green;
+	color: green;
+}
+
+.save.ui.icon.button.small {
+	margin-right: 4px;
+}
+
+.save.ui.icon.button.small > .plus.icon {
+	padding-top: 1px;
+}
+
+@media screen and (max-width: 1200px) {
+/*.current-selected-container {
+	float: left;
+	text-align: left;
+}*/
+
+#rightpart {
+position: absolute; right: 0; top: 0; left:285px;
+text-align: center;
+	margin:70px 2% 2% 2%;
+	width:450px;
+	height:100vh;
+	line-height:3em;
+	overflow:scroll;
+	padding:15px;
+	background-color:white;
+	color:#000000;
+	border:4px double #e67e22;
+	border-radius:10px;
+	box-sizing: border-box;
+}
+/*
+.remove-input.ui.icon.button.small {
+	margin-top: 1.9px;
+	text-align: center;
+	line-height: 50%;
+}*/
+
+/*.remove.icon {
+	line-height: 1em;
+}*/
+
+@media screen and (max-width: 770px) {
+.ui.top.fixed.menu.two{
+	display:flex;
+    float: right;
+    position: relative;
+    background-color: #e67e22;
+    height:50px;
+}
+
+.ui.top.fixed.menu{
+	display:none;
+}
+
+.remove-input.ui.icon.button.small {
+	margin-top: 1.9px;
+	text-align: center;
+	line-height: 50%;
+}
+
+#leftpart {
+position: relative; left: 0; top: 0;
+	margin:70px 2px 2px 10px;
+   max-width:350px; /* or whatever width you want. */
+   display: inline-block;
+   	height:100%;
+	line-height:3em;
+	overflow:scroll;
+	padding:15px;
+	background-color:white;
+	color:#000000;
+	border:4px double #e67e22;
+	border-radius:10px;
+}
+
+#rightpart {
+position: relative; right: 0; top: 0; left:0;
+text-align: center;
+	margin:40px 2px 2px 10px;
+	width:360px;
+	height:100vh;
+	line-height:3em;
+	overflow:scroll;
+	padding:15px;
+	background-color:white;
+	color:#000000;
+	border:4px double #e67e22;
+	border-radius:10px;
+	box-sizing: border-box;
+}
+
+img {
+    width: 280px;
+    height: 240px;
+}
+
+/*#surpriseButton {
+position:relative;
+background:    #3d85c6;
+border-radius: 20px;
+color:         #fff;
+display:       inline-block;
+padding:       8px 21px;
+font:          normal 700 19px/1 "Caviar", sans-serif;
+text-align:    center;
+text-shadow:   5px 3px 0 #00f;
+http://dabuttonfactory.com/
+}*/
+
+
+/*awesome background pictures: http://subtlepatterns.com/*/
+.fb-login-button{
+	margin-left: 0px;
+    margin-right: 0px;
+}
+/*
+#cuisine-list, #restriction-list, #ingredient-list{
+	background: none;
+	list-style-type: disc;
+	padding-left: 30px;
+}*/
+
+#user{
+	width: 80px;
+}
+/*
+li.current-selected-element {
+	list-style-type: none;
+}*/
+
+
+ul{
+	line-height: 2.5em;
+	list-style-type: none;
+    padding: 15px;
+    text-align: left;
+}
+
+ul li a{
+    display: block;
+    padding: 8px 25px;
+    color: #333;
+    text-decoration: none;
+}
+ul li a:hover{
+    color: #fff;
+    background: #939393;
+}
+ul li ul.dropdown{
+    width: 120px;  /*Set width of the dropdown */
+    background: #f2f2f2;
+    display: none;
+    position: absolute;
+    z-index: 999;
+    text-align: center;
+    left: 0;
+}
+ul li:hover ul.dropdown{
+    display: block; /* Display the dropdown */
+}
+ul li ul.dropdown li{
+    display: block;
+}
+
