@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dashboard</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/js/home.js"></script>
+    <link rel='stylesheet' href='/lib/semantic/semantic.min.css'/>
+    <script src="/lib/semantic/semantic.min.js"></script>
+    <link rel='stylesheet' href='/stylesheets/home.css' />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	</head>
+
+  <body>
+
+	  	<!-- facebook sdk -->
+	  	<script>
+		  window.fbAsyncInit = function() {
+		    FB.init({
+		      appId      : '1108450909174514',
+		      xfbml      : true,
+		      cookie     : true,
+		      version    : 'v2.5'
+		    });
+		    document.getElementById('authCheck').click();
+		  };
+
+		  (function(d, s, id){
+		     var js, fjs = d.getElementsByTagName(s)[0];
+		     if (d.getElementById(id)) {return;}
+		     js = d.createElement(s); js.id = id;
+		     js.src = "//connect.facebook.net/en_US/sdk.js";
+		     fjs.parentNode.insertBefore(js, fjs);
+		   }(document, 'script', 'facebook-jssdk'));
+
+		</script>
+
+		<script>
+
+		  // This is called with the results from from FB.getLoginStatus().
+		  function statusChangeCallback(response) {
+		    // The response object is returned with a status field that lets the
+		    // app know the current login status of the person.
+		    // Full docs on the response object can be found in the documentation
+		    // for FB.getLoginStatus().
+		    if (response.status === 'connected') {
+		      // Logged into your app and Facebook.
+
+		 	  // Stores accesss token
+		    } else if (response.status === 'not_authorized') {
+		      // The person is logged into Facebook, but not your app.
+		      document.getElementById('status').innerHTML = 'Please log ' +
+		        'into Pantry.';
+		    } else {
+		      // The person is not logged into Facebook, so we're not sure if
+		      // they are logged into this app or not.
+		      document.getElementById('status').innerHTML = 'Please log ' +
+		        'into Facebook.';
+		    }
+		  }
+
+		  // This function is called when someone finishes with the Login
+		  // Button.  See the onlogin handler attached to it in the sample
+		  // code below.
+		  function checkLoginState() {
+		    FB.getLoginStatus(function(response) {
+		      statusChangeCallback(response);
+		    });
+		  }
+
+		  /*window.fbAsyncInit = function() {
+		  FB.init({
+		    appId      : '1108450909174514',
+		    cookie     : true,  // enable cookies to allow the server to access 
+		                        // the session
+		    xfbml      : true,  // parse social plugins on this page
+		    version    : 'v2.2' // use version 2.2
+		  });*/
+
+		  // Now that we've initialized the JavaScript SDK, we call 
+		  // FB.getLoginStatus().  This function gets the state of the
+		  // person visiting this page and can return one of three states to
+		  // the callback you provide.  They can be:
+		  //
+		  // 1. Logged into your app ('connected')
+		  // 2. Logged into Facebook, but not your app ('not_authorized')
+		  // 3. Not logged into Facebook and can't tell if they are logged into
+		  //    your app or not.
+		  //
+		  // These three cases are handled in the callback function.
+
+		  // Load the SDK asynchronously
+		  (function(d, s, id) {
+		    var js, fjs = d.getElementsByTagName(s)[0];
+		    if (d.getElementById(id)) return;
+		    js = d.createElement(s); js.id = id;
+		    js.src = "//connect.facebook.net/en_US/sdk.js";
+		    fjs.parentNode.insertBefore(js, fjs);
+		  }(document, 'script', 'facebook-jssdk'));
+
+		  
+
+		</script>
+
+		<!--
+		  Below we include the Login Button social plugin. This button uses
+		  the JavaScript SDK to present a graphical Login button that triggers
+		  the FB.login() function when clicked.
+		-->
+
+	  	<section class="head">
+	  		<a id='authCheck'></a>
+	  		<!-- Facebook logout script -->
+	  		<script type="text/javascript">
+	  			window.onload = function(){
+	  				var a = document.getElementById("logout");
+	  				a.onclick = function(){
+	  					console.log("L");
+	  					window.localStorage.clear();
+	  					window.localStorage.clear();
+					    FB.getLoginStatus(function(response) {
+					        if (response && response.status === 'connected') {
+					        	window.location = "https://pantrysite.herokuapp.com/";
+					        	//window.location = "localhost:3000/";
+					            FB.logout(function(response) {
+					                document.location.reload();
+					            });
+					        }
+					    });	
+	  				}
+	  				var b = document.getElementById("logout1");
+	  				b.onclick = function(){
+	  					console.log("L1");
+	  					window.localStorage.clear();
+	  					window.localStorage.clear();
+					    FB.getLoginStatus(function(response) {
+					        if (response && response.status === 'connected') {
+					        	window.location = "https://pantrysite.herokuapp.com/";
+					        	//window.location = "localhost:3000/";
+					            FB.logout(function(response) {
+					                document.location.reload();
+					            });
+					        }
+					    });	
+	  				}
+	  			}
+			</script> 
+			<script type="text/javascript"> 
+				document.getElementById('authCheck').onclick = function(){
+	  				FB.getLoginStatus(function(response){
+						if (response && response.status === 'connected'){
+							FB.api('/me', function(response) {
+						      	 var user = response.name;
+						      	 var user_id = response.id;
+							 	 window.localStorage.setItem("user", user);
+							 	 window.localStorage.setItem("user_id", user_id);
+					   		  }); 
+						}else{
+							window.stop();
+							window.location = "https://pantrysite.herokuapp.com/";
+							//window.location = "localhost:3000/";
+						}
+					});
+  				}
+	  		</script>
+
+			<!-- shows dropdown when width < 640px -->
+			
+			<div class="ui top fixed menu">
+			  	<a href="/home" class="item">PANTRY</a>				  
+				<a href="/saved" class="item">My Saved Recipes</a>
+				<a href="/about" class="item">About Us</a>
+				<a id="logout" class="item" href="#">Log Out</a>
+			</div>
+
+			<div class="ui top fixed menu two">
+			  <a href="/home" id="home
+			  	" class="item">PANTRY</a>			  
+			  <div class="ui simple dropdown item">MENU
+			    <div class="menu">
+			      <a href="/saved" class="item">My Saved Recipes</a>
+			      <a href="/about" class="item">About Us</a>
+			      <a id="logout1" href="#" class="item">Log Out</a>
+			    </div>
+			  </div>
+			</div>				
+		</section>
+
+<div id="leftpart">
+	<h4>My Health Goal</h4>
+	<div class="goal">
+		<div id="weight-buttons" class="ui vertical buttons">
+			<button id="lose-weight" class="fit weight ui button">Lose Weight</button>
+			<button id="maintain-weight" class="fit weight ui button">Maintain Weight</button>
+			<button id="gain-weight" class="fit weight ui button">Gain Weight</button>
+		</div>
+	</div>
+
+	<h4>My State</h4>
+	<div class="state">
+		<div id="state-buttons" class="ui large buttons">
+			<button id="before-workout" class="fit period ui button">Before Exercise</button>
+			<div class="or"></div>
+			<button id="after-workout" class="fit period ui button">After Exercise</button>
+		</div>
+	</div>
+
+	<h4>My Recipe</h4>
+	<div class="searchBar">
+	    <form id="recipe-search" method="get" action="/home/recipeinput">
+			<div class="ui icon input">
+				<input id='recipe-name' name="recipe" placeholder="Keyword Search" type="text" maxlength="35">
+				<i class="search icon"></i>
+			</div>
+	        <input id = 'recipe-search-bar' class="submit-parameter" type="submit" value="Search for recipe">
+	        <ul id='recipe-list' style="padding-left:15.2px"></ul>
+	    </form>
+	</div>	
+	<h4>My Ingredients</h4>
+
+	<div class="ingredientsearch">
+	    <form id="ingredient-search" method="post" action="/home/ingredientinput">
+			<div class="ui icon input">
+				<input id='ingredient-name' name="ingredient" placeholder="Input Ingredient" type="text" maxlength="20">
+				<i class="plus square icon"></i>
+				<div class='container' id='ingredient-autocomplete-container'></div>
+			</div>
+	        <input id='ingredient-input-bar' class="submit-parameter" type="submit" value="Add Ingredient">
+	        <ul id='ingredient-list' style="padding-left:15.2px"></ul>
+	    </form>
+	    <div class="clear-all">
+	    	<button id='ingredient-clear-all' class="ui black basic button">Remove All</button>
+	    </div>
+	</div>
+
+	<h4>My Restrictions</h4>
+
+	<div class="restrictionsearch">
+	    <form id="restrictions-search" method="post" action="/home/restrictioninput">
+			<div class="ui icon input">
+				<input id='restriction-name' name="restriction" placeholder="Input Restriction" type="text" maxlength="20">
+				<i class="plus square icon"></i>
+				<div class='container' id='restriction-autocomplete-container'></div>
+			</div>
+	        <input id='restriction-input-bar' class="submit-parameter" type="submit" value="Add Restriction">
+	        <ul id='restriction-list' style="padding-left:15.2px"></ul>
+	    </form>
+	</div>	
+
+	<h4>Maximum Time (Minutes)</h4>
+
+	<div class="timesearch">
+		<form id="time-search" method="post" action="/home/timeinput">
+			<input id="time-bar" type="range" min="0" max="120" value="120" step="15" onchange="showVal(this.value)" oninput="showVal(this.value)" />
+			<span id="time">120</span>
+		</form>
+		<script type="text/javascript">
+		function showVal(newValue){
+			document.getElementById("time").innerHTML=newValue;
+		}
+		</script>
+	</div>
+
+	<h4>My Cuisines</h4>
+
+	<div class="cuisinesearch">
+	    <form id="cuisine-search" method="post" action="/home/cuisineinput">
+			<div class="ui icon input">
+				<input id='cuisine-name' name="cuisine" placeholder="Input Cuisine" type="text" maxlength="20">
+				<i class="plus square icon"></i>
+				<div class='container' id='cuisine-autocomplete-container'></div>
+			</div>
+	        <input id='cuisine-input-bar' class="submit-parameter" type="submit" value="Add Cuisine">
+	        <ul id='cuisine-list' style="padding-left:15.2px"></ul>
+	    </form>
+	</div>	
+
+<!-- 	<h4>Flavors</h4>
+
+	<div class="flavorsearch">
+
+		<h5>Salty:</h5>
+		<form id="salty-search" method="post" action="/home/saltyinput">
+			<input id="salty-bar" type="range" min="0" max="10" value="10" step="1" onchange="showVal1(this.value)" oninput="showVal1(this.value)" />
+			<span id="salty">10</span>
+		</form>
+		<script type="text/javascript">
+		function showVal1(newValue){
+			document.getElementById("salty").innerHTML=newValue;
+		}
+		</script>
+
+		<h5>Savory:</h5>
+		<form id="savory-search" method="post" action="/home/savoryinput">
+			<input id="savory-bar" type="range" min="0" max="10" value="10" step="1" onchange="showVal2(this.value)" oninput="showVal2(this.value)" />
+			<span id="savory">10</span>
+		</form>
+		<script type="text/javascript">
+		function showVal2(newValue){
+			document.getElementById("savory").innerHTML=newValue;
+		}
+		</script>
+
+		<h5>Sour:</h5>
+		<form id="sour-search" method="post" action="/home/sourinput">
+			<input id="sour-bar" type="range" min="0" max="10" value="10" step="1" onchange="showVal3(this.value)" oninput="showVal3(this.value)" />
+			<span id="sour">10</span>
+		</form>
+		<script type="text/javascript">
+		function showVal3(newValue){
+			document.getElementById("sour").innerHTML=newValue;
+		}
+		</script>
+
+		<h5>Bitter:</h5>
+		<form id="bitter-search" method="post" action="/home/bitterinput">
+			<input id="bitter-bar" type="range" min="0" max="10" value="10" step="1" onchange="showVal4(this.value)" oninput="showVal4(this.value)" />
+			<span id="time">10</span>
+		</form>
+		<script type="text/javascript">
+		function showVal4(newValue){
+			document.getElementById("time").innerHTML=newValue;
+		}
+		</script>
+
+		<h5>Sweet:</h5>
+		<form id="sweet-search" method="post" action="/home/sweetinput">
+			<input id="sweet-bar" type="range" min="0" max="10" value="10" step="1" onchange="showVal5(this.value)" oninput="showVal5(this.value)" />
+			<span id="sweet">10</span>
+		</form>
+		<script type="text/javascript">
+		function showVal5(newValue){
+			document.getElementById("sweet").innerHTML=newValue;
+		}
+		</script>
+
+		<h5>Spicy:</h5>
+		<form id="spicy-search" method="post" action="/home/spicyinput">
+			<input id="spicy-bar" type="range" min="0" max="10" value="10" step="1" onchange="showVal6(this.value)" oninput="showVal6(this.value)" />
+			<span id="spicy">10</span>
+		</form>
+		<script type="text/javascript">
+		function showVal6(newValue){
+			document.getElementById("spicy").innerHTML=newValue;
+		}
+		</script>
+	</div>
+ -->
+</div>
+
+<div id="rightpart">
+	<div class="ui three grid">
+	</div>
+	<div id="no-input-entered" class="home-message">
+		<h1>Define search parameters on the left to find great new recipes!</h1>
+	</div>
+	<div id="no-matching-recipes" class="home-message">
+		<h1>Oops, looks like there are no matching recipes. Try loosening your search parameters!</h1>
+	</div>
+	<div id="need-both-fit-options" class="home-message">
+		<h1>Select both your health goal and state to find healthy recipes, or use Pantry with neither!
+		</h1>
+	</div>
+	<div id="home-loading" class="home-message">
+		<h1>Loading...</h1>
+	</div>
+</div>
+
+
+  </body>
+</html>

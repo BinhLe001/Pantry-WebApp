@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Saved Recipes</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/js/saved.js"></script>
+	<link rel='stylesheet' href='/stylesheets/saved.css'/>
+    <link rel='stylesheet' href='/lib/semantic/semantic.min.css'/>
+    <script src="/lib/semantic/semantic.min.js"></script>
+    <link rel='stylesheet' href='/stylesheets/home.css' />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+   	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+</head>
+<body>
+
+			<!-- facebook sdk -->
+		  	<script>
+			  window.fbAsyncInit = function() {
+			    FB.init({
+			      appId      : '1108450909174514',
+			      xfbml      : true,
+			      cookie     : true,
+			      version    : 'v2.5'
+			    });
+			    document.getElementById('authCheck').click();
+			  };
+
+			  (function(d, s, id){
+			     var js, fjs = d.getElementsByTagName(s)[0];
+			     if (d.getElementById(id)) {return;}
+			     js = d.createElement(s); js.id = id;
+			     js.src = "//connect.facebook.net/en_US/sdk.js";
+			     fjs.parentNode.insertBefore(js, fjs);
+			   }(document, 'script', 'facebook-jssdk'));
+
+			</script>
+
+			<script>
+
+			  // This is called with the results from from FB.getLoginStatus().
+			  function statusChangeCallback(response) {
+			    // The response object is returned with a status field that lets the
+			    // app know the current login status of the person.
+			    // Full docs on the response object can be found in the documentation
+			    // for FB.getLoginStatus().
+			    if (response.status === 'connected') {
+			      // Logged into your app and Facebook.
+
+			 	  // Stores accesss token
+			      // window.location = "http://localhost:3000/home";
+			    } else if (response.status === 'not_authorized') {
+			      // The person is logged into Facebook, but not your app.
+			      document.getElementById('status').innerHTML = 'Please log ' +
+			        'into Pantry.';
+			    } else {
+			      // The person is not logged into Facebook, so we're not sure if
+			      // they are logged into this app or not.
+			      document.getElementById('status').innerHTML = 'Please log ' +
+			        'into Facebook.';
+			    }
+			  }
+
+			  // This function is called when someone finishes with the Login
+			  // Button.  See the onlogin handler attached to it in the sample
+			  // code below.
+			  function checkLoginState() {
+			    FB.getLoginStatus(function(response) {
+			      statusChangeCallback(response);
+			    });
+			  }
+
+			  /*window.fbAsyncInit = function() {
+			  FB.init({
+			    appId      : '1108450909174514',
+			    cookie     : true,  // enable cookies to allow the server to access 
+			                        // the session
+			    xfbml      : true,  // parse social plugins on this page
+			    version    : 'v2.2' // use version 2.2
+			  });*/
+
+			  // Now that we've initialized the JavaScript SDK, we call 
+			  // FB.getLoginStatus().  This function gets the state of the
+			  // person visiting this page and can return one of three states to
+			  // the callback you provide.  They can be:
+			  //
+			  // 1. Logged into your app ('connected')
+			  // 2. Logged into Facebook, but not your app ('not_authorized')
+			  // 3. Not logged into Facebook and can't tell if they are logged into
+			  //    your app or not.
+			  //
+			  // These three cases are handled in the callback function.
+
+			  //FB.getLoginStatus(function(response) {
+			    //statusChangeCallback(response);
+			  //});
+
+			  // Load the SDK asynchronously
+			  (function(d, s, id) {
+			    var js, fjs = d.getElementsByTagName(s)[0];
+			    if (d.getElementById(id)) return;
+			    js = d.createElement(s); js.id = id;
+			    js.src = "//connect.facebook.net/en_US/sdk.js";
+			    fjs.parentNode.insertBefore(js, fjs);
+			  }(document, 'script', 'facebook-jssdk'));
+
+			  
+
+			</script>
+
+			<!--
+			  Below we include the Login Button social plugin. This button uses
+			  the JavaScript SDK to present a graphical Login button that triggers
+			  the FB.login() function when clicked.
+			-->
+			
+		  	<section class="head">
+
+	  		<a id='authCheck'></a>
+
+	  		<!-- Facebook logout script -->
+	  		<script type="text/javascript">
+
+
+	  			window.onload = function(){
+	  					
+	  				var a = document.getElementById("logout");
+	  				a.onclick = function(){
+		            	window.localStorage.clear();
+		            	window.localStorage.clear();
+					    FB.getLoginStatus(function(response) {
+					        if (response && response.status === 'connected') {
+					        	window.location = "http://pantrysite.herokuapp.com";
+					        	//window.location = "localhost:3000/";
+					            FB.logout(function(response) {
+					                document.location.reload();
+					            });
+					        }
+					    });	
+	  				}
+	  				var b = document.getElementById("logout1");
+	  				b.onclick = function(){
+	  					console.log("L1");
+	  					window.localStorage.clear();
+	  					window.localStorage.clear();
+					    FB.getLoginStatus(function(response) {
+					        if (response && response.status === 'connected') {
+					        	window.location = "https://pantrysite.herokuapp.com/";
+					        	//window.location = "localhost:3000/";
+					            FB.logout(function(response) {
+					                document.location.reload();
+					            });
+					        }
+					    });	
+	  				}
+	  			}
+			</script> 
+			<script type="text/javascript">
+				document.getElementById('authCheck').onclick = function(){
+	  				FB.getLoginStatus(function(response){
+						if (response && response.status === 'connected'){
+							FB.api('/me', function(response) {
+						      	 var user = response.name;
+						      	 var user_id = response.id;
+							 	 localStorage.setItem("user", user);
+							 	 localStorage.setItem("user_id", user_id);
+					   		  }); 
+						}else{
+							window.stop();
+							window.location = "http://pantrysite.herokuapp.com";
+						}
+					});
+  				}
+	  		</script>
+
+			<!-- shows dropdown when width < 640px -->
+
+			<div class="ui top fixed menu">
+			  	<a href="/home" class="item">PANTRY</a>				
+				<a href="/saved" class="item">My Saved Recipes</a>
+				<a href="/about" class="item">About Us</a>
+				<a id="logout" class="item" href="#">Log Out</a>
+			</div>
+
+			<div class="ui top fixed menu two">
+			  <a href="/home" id="home
+			  	" class="item">PANTRY</a>			  
+			  <div class="ui simple dropdown item">
+				MENU
+			    <div class="menu">
+			      <a href="/saved" class="item">My Saved Recipes</a>
+			      <a href="/about" class="item">About Us</a>
+			      <a id="logout1" href="#" class="item">Log Out</a>
+			    </div>
+			  </div>
+			</div>
+		</section>
+
+</div>
+
+<div id="mainmenu">
+	<div class="ui three grid">
+	    
+	</div>
+	<div class="home-message">
+		<h1 id="no-recipes-message">Save your favorite recipes here to remember them for later!</h1>
+		<h1 id="loading-message">Loading...</h1>
+	</div>
+
+	</div>
+</div>
+
+</body>
+</html>
